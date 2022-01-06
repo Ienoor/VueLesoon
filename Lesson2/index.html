@@ -9,14 +9,12 @@
   </head>
   <body>
     <div class="wrapper">
-      <div id="app">{{title}}</div>
+      <div id="app"></div>
     </div>
     <script>
       const App = {
         data() {
-          return {
-            title: "Vue Init; Work with data.",
-          };
+          return {};
         },
       };
       Vue.createApp(App).mount("#app");
