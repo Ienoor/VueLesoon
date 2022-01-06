@@ -9,12 +9,33 @@
   </head>
   <body>
     <div class="wrapper">
-      <div id="app"></div>
+      <div id="app">
+        <div class="app__header">
+          <h1>{{priority.title}} - {{priority.value}}</h1>
+        </div>
+        <div class="app__body">
+          <button>{{buttons.next.title}}</button>
+          <button>{{buttons.prev.title}}</button>
+        </div>
+      </div>
     </div>
     <script>
       const App = {
         data() {
-          return {};
+          return {
+            priority: {
+              title: "Priority",
+              value: 0,
+            },
+            buttons: {
+              prev: {
+                title: "Down",
+              },
+              next: {
+                title: "Up",
+              },
+            },
+          };
         },
       };
       Vue.createApp(App).mount("#app");
