@@ -12,10 +12,16 @@
       <div id="app">
         <div class="app__header">
           <h1>{{priority.title}} - {{priority.value}}</h1>
+          <div>
+            <p v-if="priority.value === 3">priority = 3</p>
+            <p v-else>priority != 3</p>
+          </div>
         </div>
         <div class="app__body">
           <button @click="up">{{buttons.next.title}}</button>
-          <button @click="down">{{buttons.prev.title}}</button>
+          <button v-if="priority.value >= 1" @click="down">
+            {{buttons.prev.title}}
+          </button>
         </div>
       </div>
     </div>
@@ -39,10 +45,14 @@
         },
         methods: {
           down() {
-            return this.priority.value--;
+            if (this.priority.value >= 1) {
+              this.priority.value--;
+            }
           },
           up() {
-            return this.priority.value++;
+            if (this.priority.value < 3) {
+              this.priority.value++;
+            }
           },
         },
       };
