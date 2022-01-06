@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>#2 - Work with object.</title>
+    <title>#3 - Methods.</title>
     <script src="https://unpkg.com/vue@next"></script>
   </head>
   <body>
@@ -14,8 +14,8 @@
           <h1>{{priority.title}} - {{priority.value}}</h1>
         </div>
         <div class="app__body">
-          <button>{{buttons.next.title}}</button>
-          <button>{{buttons.prev.title}}</button>
+          <button @click="up">{{buttons.next.title}}</button>
+          <button @click="down">{{buttons.prev.title}}</button>
         </div>
       </div>
     </div>
@@ -36,6 +36,14 @@
               },
             },
           };
+        },
+        methods: {
+          down() {
+            return this.priority.value--;
+          },
+          up() {
+            return this.priority.value++;
+          },
         },
       };
       Vue.createApp(App).mount("#app");
